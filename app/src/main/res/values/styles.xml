@@ -1,11 +1,22 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-    </style>
 
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+    </style>
+    
+    <style name="ActivityAnimation" parent="@android:style/Animation.Activity">
+        <!--进入 当前Activity退出动画 跳转的Activity进入动画-->
+        <item name="android:activityOpenEnterAnimation">@anim/anim_activity_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_activity_left_out</item>
+
+        <!--关闭 当前Activity退出动画 上个Activity进入动画-->
+        <item name="android:activityCloseEnterAnimation">@anim/anim_activity_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/anim_activity_right_out</item>
+    </style>
 </resources>

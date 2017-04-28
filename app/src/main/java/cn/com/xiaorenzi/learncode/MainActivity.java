@@ -1,5 +1,6 @@
 package cn.com.xiaorenzi.learncode;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.PersistableBundle;
@@ -45,7 +46,17 @@ public class MainActivity extends BaseActivity {
         mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                showToastLong("groupPosition=" + groupPosition + " childPosition=" + childPosition);
+                switch (groupPosition){
+                    case 0:
+                        switch (childPosition){
+                            case 0:
+                                startActivity(new Intent(MainActivity.this,AnimationActivity.class));
+                                break;
+                        }
+                        break;
+                    case 1:
+                        break;
+                }
                 return true;
             }
         });
@@ -60,6 +71,7 @@ public class MainActivity extends BaseActivity {
             List<String> child = new ArrayList<>();
             switch (i) {
                 case 0:
+                    child.add("View动画-Animation");
                     childrens.add(child);
                     break;
                 case 1:
